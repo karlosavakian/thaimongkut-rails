@@ -1,0 +1,121 @@
+$footer-logo: url('icons/brand/logo-color.svg');
+/*------------------------------------------------------*/
+
+footer {
+ background: $color-one;
+ .main-footer {
+  @include size(100%,
+  auto);
+  background: $color-one;
+  position: relative;
+  .footer-links,
+  .footer-disclaimer {
+   @include wrap;
+   @include padding(2em 2em 2em 2em);
+   overflow: hidden;
+  }
+  .footer-links {
+   >ul {
+    color: $color-two;
+    @include grid-column(1,
+    $one-col);
+    p {
+     a {
+      color: $color-two;
+      &:hover {
+       color: $color-three-clear;
+      }
+     }
+    }
+    &:first-child {
+     .footer-logo {
+      @include size(150px,
+      100px);
+      @include padding(1em 1em 1em 1em);
+      background: $footer-logo no-repeat;
+      background-size: 100%;
+     }
+    }
+    .social-footer {
+     >a {
+      color: $color-three;
+      font-size: 2em;
+      padding-left: 0em;
+      padding-right: 1em;
+      @include grid-media($lg) {
+       padding-left: 1em;
+       padding-right: 0em;
+      }
+      &:hover {
+       color: $color-two;
+       transition: all $main-transition/2 ease;
+      }
+     }
+    }
+    @include grid-media($lg) {
+     @include grid-column(1,
+     $four-col);
+     &:last-child {
+      text-align: right;
+      li {
+       display: inline-block;
+      }
+     }
+    }
+    h3 {
+     font-size: 2em;
+     color: $color-three;
+     font-weight: 900;
+     font-family: $font-two;
+     text-transform: none;
+    }
+    li {
+     @include margin(1em 0 1em 0em);
+     cursor: pointer;
+    }
+   }
+  }
+ }
+ hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: $color-one-clear;
+  opacity: 0.4;
+ }
+ .disclaimer-footer {
+  user-select: none;
+  color: $color-one-clear;
+  @include padding (0 2em 0 2em);
+  section {
+   @include wrap;
+   @include padding(1em 0 1em 0);
+   overflow: hidden;
+   font-size: .8em;
+   ul,
+   li {
+    display: inline-block;
+   }
+   ul {
+    &:first-child {
+     padding-bottom: 1em;
+     @include grid-media($lg) {
+      float: right;
+      * {
+       padding-left: 1em;
+       padding-bottom: 0;
+      }
+     }
+     li {
+      a {
+       &:hover {
+        color: $color-three;
+        transition: all $main-transition/2 ease;
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

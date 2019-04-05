@@ -1,0 +1,157 @@
+ /*sizes*/
+
+ $header-top-hg:150px;
+ /*Urls*/
+
+ $logo-color: url('icons/brand/logo-color.svg');
+ $logo-white: url('icons/brand/logo-white.svg');
+ /*_________________________________________________________________________________________*/
+
+ /*----------------------------------------------------------*/
+
+ .main-header {
+  @include size (100%,
+  auto);
+  z-index: 99999;
+  background: $color-two;
+  position: relative;
+  @include grid-media($lg) {
+   min-height: $header-top-hg;
+   background: $color-three;
+  }
+ }
+
+ .top-header {
+  @include padding(5% 0 5% 0);
+  @include wrap;
+  position: relative;
+  color: $color-two;
+  .header-logo {
+   @include margin(0 0 0 5%);
+   min-width: 100px;
+   min-height: $header-top-hg;
+   background: $logo-color no-repeat center center;
+   background-size: 100%;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   @include grid-media($lg) {
+    min-width: 250px;
+    @include margin(0 0 0 0);
+    background: $logo-white no-repeat center center;
+   }
+  }
+  >nav {
+   font-family: $font-one;
+   font-weight: 900;
+   font-size: 2em;
+   @include padding(2em 0 2em 0);
+   .header-menu {
+    overflow: hidden;
+    text-align: center;
+    background: $color-three-clear;
+    display: none;
+    position: absolute;
+    top: $header-top-hg+20px;
+    @include size(100%,
+    1000px);
+    overflow: hidden;
+    &.hide-mega-menu {
+     display: block;
+    }
+    @include grid-media($lg) {
+     background: none;
+     position: relative;
+     top: 0;
+     display: block;
+     text-align: right;
+     @include size(auto,
+     auto);
+     float: right;
+    }
+    li {
+     @include margin(2em 1em 2em 1em);
+     display: block;
+     position: relative;
+     z-index: 1;
+     padding: 2px 6px;
+     @include grid-media($lg) {
+      @include margin(0 1em 0 1em);
+      display: inline;
+     }
+     a {
+      color: $color-two;
+      text-decoration: none;
+      @include grid-media($lg) {
+       &:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: block;
+        background-color: $color-two;
+        content: "";
+        transform: translate3d(0, 100%, 0);
+        z-index: -1;
+       }
+       &:hover {
+        color: $color-three;
+        &:after {
+         transform: translate3d(0, 0, 0);
+         transition: transform .3s cubic-bezier(0.11, 0.7, 0, 1);
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+
+ .navicon {
+  @include margin(0 5% 0 0);
+  float: right;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  @include grid-media($lg) {
+   display: none;
+  }
+  .burger {
+   position: relative;
+   display: block;
+   width: 40px;
+   height: 5px;
+   background: $color-three;
+   transition: all .5 ease-in-out;
+   &:before,
+   &:after {
+    position: absolute;
+    background: $color-three;
+    content: '';
+    width: 40px;
+    height: 5px;
+    transition: all .5 ease-in-out;
+   }
+   &:before {
+    top: -8px;
+   }
+   &:after {
+    top: 8px;
+   }
+  }
+ }
+
+ .navicon-active {
+  .burger {
+   background: transparent;
+   &:before {
+    transform: rotate(45deg) translate(5px, 6px);
+   }
+   &:after {
+    transform: rotate(-45deg) translate(5px, -6px);
+   }
+  }
+ }
+ 

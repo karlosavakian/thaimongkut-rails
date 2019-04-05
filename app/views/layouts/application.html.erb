@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         <% if @page_title %>
+        Thai Mongkut |  <%= @page_title %>
+         <% else %>
+        Thai Mongkut | Restaurante Tailandés
+         <% end %>
+      </title>
+      <%= render 'application/favicon' %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+ 
+
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+   </head>
+   <body>
+       <!--<%= render 'modules/cookies'%> -->
+      <%= render 'modules/header'%>
+      <%= yield %> 
+      <%= render 'modules/footer'%>
+   </body>
+</html>

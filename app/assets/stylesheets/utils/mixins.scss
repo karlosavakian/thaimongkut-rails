@@ -1,0 +1,30 @@
+@mixin center {
+    @include margin(auto auto);
+    left: 0;
+    right: 0;
+}
+
+@mixin vertical {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin wrap {
+    //background: $color-five;
+    //@include grid-visual(); 
+    @include grid-media ($lg) {
+        max-width: 1200px;
+        @include center;
+    }
+}
+
+@mixin invisible {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@mixin visible {
+    visibility: visible;
+    opacity: 1;
+}
